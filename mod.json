@@ -5,13 +5,10 @@
   "name": "JMenu",
   "developer": "yourname",
   "description": "An original modular Geometry Dash utility menu with Safe Mode enabled by default.",
-  "dependencies": {
-    "geode.node-ids": "*"
-  },
   "settings": {
     "safe-mode": {
       "name": "Safe Mode",
-      "description": "Blocks reward-affecting features from being enabled through JMenu.",
+      "description": "Blocks gameplay-advantage features from being enabled through JMenu.",
       "type": "bool",
       "default": true
     }
