@@ -5,6 +5,12 @@
   "name": "JMenu",
   "developer": "yourname",
   "description": "An original modular Geometry Dash utility menu with Safe Mode enabled by default.",
+  "dependencies": {
+    "syzzi.click_between_frames": {
+      "version": ">=1.5.0",
+      "importance": "suggests"
+    }
+  },
   "settings": {
     "safe-mode": {
       "name": "Safe Mode",
