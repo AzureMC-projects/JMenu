@@ -1,38 +1,41 @@
 # JMenu
 
-An original, modular Geometry Dash utility/mod menu for the Geode loader. JMenu is designed around a **Safe Mode enabled by default**.
+JMenu is an original Geometry Dash utility-menu project for the Geode loader.
 
-> **Status:** early scaffold. Most Mega Hack-style features are planned, not implemented. A successful CI build only confirms compilation/package creation; it does not confirm in-game behavior.
+> **Status: early development.** The current build provides a Geode-native alert menu opened with the backtick key (`). It is not yet a complete Mega Hack-style menu and has not been approved for the official Geode index.
 
-## Build in GitHub
+## Description
 
-Yes. The workflow in `.github/workflows/build.yml` runs on pushes, pull requests, and manual dispatch. It attempts Windows 64-bit and Android 64-bit builds using the official Geode build action. Open the repository's **Actions** tab, select **Build JMenu**, and inspect the latest run. If it succeeds, download the `JMenu-Win64` or `JMenu-Android64` artifact from that run. A failed build will show the compiler/log output to fix.
+JMenu aims to bring together practice utilities, visual helpers, and quality-of-life tools in a clean blue-themed interface. Safe Mode is enabled by default and blocks enabling registry entries marked as gameplay-affecting. Click Between Frames (CBF) is supplied by the existing separate mod; JMenu does not reimplement CBF or control its settings.
 
-The current workflow has not yet been run/verified. Android builds in GitHub Actions do not run the game or install the mod on a device.
+## Current build
 
-## Build locally
+- Geode-native visible menu entry point, opened with ` on supported desktop keyboards
+- Safe Mode setting saved through Geode
+- Registry/catalog for planned tools
+- Suggested dependency metadata for Click Between Frames
+- Windows 64-bit and Android 64-bit build jobs in GitHub Actions
 
-Install the Geode CLI and matching SDK, then run:
+### Important limitations
 
-```sh
-geode build
-```
+Speedhack, Noclip, Show Layout, hitbox tools, FPS/session counters, practice helpers, profiles, and themes are not all implemented gameplay features. A registry entry is not a working game hook. Safe Mode does not guarantee that all reward, completion, or leaderboard paths are intercepted. An Android 64-bit CI build is not proof of compatibility with the older Android Geode 1.8.0 runtime.
 
-## Current scaffold
+## Install Click Between Frames
 
-- Geode mod manifest and CMake project
-- Basic hack registry with initial Speedhack, Noclip P1, and Show Layout entries
-- Safe Mode setting enabled by default and basic gating in the registry
-- Keyboard hook scaffold for the backtick menu toggle
-- GitHub Actions build workflow for Windows and Android 64-bit
-- Suggested dependency for the existing Click Between Frames (CBF) mod
+Install [Click Between Frames](https://geode-sdk.org/mods/syzzi.click_between_frames) separately from the Geode index. Its settings and input handling remain owned by CBF.
 
-**Important:** Speedhack/Noclip/Show Layout are registry entries only; their gameplay hooks are not implemented. The menu controller currently logs open/close state and does not render an ImGui window yet. Safe Mode currently does not guarantee that all completion, reward, or leaderboard submission paths are intercepted.
+## Build and CI
 
-## Click Between Frames (CBF)
+Pushes trigger the GitHub Actions workflow for Windows 64-bit and Android 64-bit. Open the [Actions page](https://github.com/AzureMC-projects/JMenu/actions) to inspect the latest build and download its artifacts. A successful CI build confirms compilation/package creation only; it does not prove the menu behaves correctly in-game or on a physical Android device.
 
-JMenu does not duplicate CBF. It suggests the existing Geode mod `syzzi.click_between_frames`; users can install it through the Geode index or [its Geode page](https://geode-sdk.org/mods/syzzi.click_between_frames). CBF's settings and input handling remain managed by CBF itself.
+## Official Geode submission checklist
 
-## Roadmap
+- [ ] Final icon and required artwork
+- [ ] Test menu opening/closing and touch/input behavior on each supported platform
+- [ ] Verify exact supported Geode and Geometry Dash versions
+- [ ] Implement and test each advertised feature, or label it as planned
+- [ ] Audit Safe Mode and completion/reward/leaderboard interactions
+- [ ] Add release notes and review manifest fields
+- [ ] Submit to the Geode index and address review feedback
 
-See [FEATURE_ROADMAP.md](FEATURE_ROADMAP.md) for planned UI, practice tools, gameplay toggles, safety work, and platform testing.
+See [CHANGELOG.md](CHANGELOG.md) and [FEATURE_ROADMAP.md](FEATURE_ROADMAP.md).
