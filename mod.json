@@ -1,5 +1,5 @@
 {
-  "geode": "5.11.1",
+  "geode": "5.11.0",
   "gd": {
     "win": "2.2081",
     "android": "2.2081"
@@ -12,7 +12,7 @@
   "dependencies": {
     "syzzi.click_between_frames": {
       "version": ">=1.5.0",
-      "importance": "suggests"
+      "importance": "suggested"
     }
   },
   "settings": {
