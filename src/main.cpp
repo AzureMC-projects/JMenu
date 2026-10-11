@@ -15,10 +15,11 @@ $on_mod(Loaded) {
 }
 
 class $modify(JMenuKeyboardDispatcher, CCKeyboardDispatcher) {
-    void dispatchKeyboardMSG(enumKeyCodes key, bool down, bool repeat) {
-        CCKeyboardDispatcher::dispatchKeyboardMSG(key, down, repeat);
-        if (down && !repeat && key == KEY_Grave) {
+    bool dispatchKeyboardMSG(enumKeyCodes key, bool down, bool repeat, double timestamp) {
+        auto handled = CCKeyboardDispatcher::dispatchKeyboardMSG(key, down, repeat, timestamp);
+        if (down && !repeat && key == KEY_Tab) {
             JMenu::ui::MenuController::get().toggle();
         }
+        return handled;
     }
 };
