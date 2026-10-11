@@ -1,5 +1,9 @@
 {
   "geode": ">=5.0.0",
+  "gd": {
+    "win": "2.2081",
+    "android": "2.2081"
+  },
   "version": "v1.0.0",
   "id": "yourname.megahack-clone",
   "name": "JMenu",
