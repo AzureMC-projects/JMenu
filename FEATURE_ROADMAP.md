@@ -1,35 +1,34 @@
-# JMenu feature plan
+# JMenu feature roadmap
 
-This file distinguishes menu entries and integrations from working implementations. A feature must not be described as implemented until its game hook is written and tested on the target Geometry Dash + Geode version.
+Items are only marked complete after the feature has an implementation and has been tested in-game on the stated target.
 
-## UI and quality-of-life
-- [ ] Dear ImGui/Cocos menu renderer, draggable/resizable window
-- [ ] Search, category navigation, tooltips, notifications
-- [ ] Profiles, themes, per-hack keybinds, config import/export
-- [ ] FPS counter, session timer, level/player information
-- [ ] Practice-mode checkpoints and reset helpers
+## Menu and settings
+- [x] Visible Geode-native menu entry point
+- [x] Backtick hotkey code corrected to `KEY_GraveAccent`
+- [ ] Persistent custom panel with search and category tabs
+- [ ] Search, tooltips, notifications, draggable/resizable layout
+- [ ] Theme selector, profiles, config import/export
+- [ ] Per-feature keybinds and a configurable menu key
+- [ ] Mobile-friendly touch menu and on-screen toggle
 
-## Gameplay and visual tools (offline/practice unless explicitly allowed)
-- [ ] Speedhack and speed presets
-- [ ] Noclip P1/P2, hitbox display, hitbox trail
-- [ ] Show Layout, object/decor visibility filters
-- [ ] FPS/physics controls with compatibility checks
-- [ ] Practice utilities, start-position helpers, completion statistics
-- [ ] Replay/bot features only after deterministic input and compatibility testing
+## Practice and visual tools
+- [ ] FPS display and session timer
+- [ ] Level/player information panel
+- [ ] Practice reset and checkpoint helpers
+- [ ] Hitbox viewer and hitbox trail
+- [ ] Show Layout and object/decor visibility filters
+- [ ] Speed presets and Noclip P1/P2, with explicit practice-only labels
+- [ ] Attempt counter and completion/session statistics
+- [ ] Replay or bot features only after deterministic input and compatibility testing
 
-## Click Between Frames (CBF)
-JMenu should use the existing Geode mod rather than reimplementing CBF. Install **Click Between Frames** separately from the Geode index: https://geode-sdk.org/mods/syzzi.click_between_frames. CBF's own settings and input handling remain owned by that mod. JMenu may provide a status/link and compatibility guidance; it must not pretend to toggle CBF unless a supported public API exists.
+## Click Between Frames
+Use the existing Geode mod instead of reimplementing CBF: https://geode-sdk.org/mods/syzzi.click_between_frames. JMenu must not claim it can toggle CBF unless a supported public API exists.
 
-## Safety
-- [ ] Safe Mode defaults on and blocks JMenu gameplay-affecting toggles
-- [ ] Clear per-feature labels for practice-only / gameplay-affecting behavior
-- [ ] Audit local completion/reward submission hooks and test that Safe Mode prevents unintended submissions where supported
-- [ ] Avoid claiming that local checks guarantee protection against all third-party mods, servers, or leaderboard rules
+## Safety and official release
+- [ ] Audit completion/reward/leaderboard submission paths where supported
+- [ ] Test Safe Mode against each gameplay-affecting feature
+- [ ] Test Windows runtime and Android device behavior separately
+- [ ] Confirm Geode compatibility range, including whether Android Geode 1.8.0 can load the build
+- [ ] Add final icon/artwork and complete the Geode index submission requirements
 
-## Platform support
-- [ ] Verify Windows builds and runtime
-- [ ] Verify Android 64-bit builds and runtime
-- [ ] Verify macOS/iOS and Android 32-bit separately
-- [ ] Test menu input capture, touch behavior, and hook compatibility per platform
-
-The checkboxes above are planned work, not current functionality. CI builds the current code; a green build does not prove runtime compatibility or that planned features work.
+A successful CI build only confirms that the code compiles and packages. It does not prove runtime behavior or official-index approval.
